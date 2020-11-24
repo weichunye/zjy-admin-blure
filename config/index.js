@@ -7,7 +7,7 @@ const path = require('path')
 module.exports = {
   dev: {
     env: require('./dev.env'),
-    port: 8010,
+    port: 8090,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -22,9 +22,9 @@ module.exports = {
     },
 
     // Various Dev Server settings
-/*    host: '192.168.1.2
-', // can be overwritten by process.env.HOST*/
-    host: '127.1.1.0', // can be overwritten by process.env.HOST
+    /*    host: '192.168.1.2
+    ', // can be overwritten by process.env.HOST*/
+    host: '127.0.0.1', // can be overwritten by process.env.HOST
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
