@@ -44,7 +44,7 @@
               @open="handleOpen"
               @close="handleClose">
         <router-link  :to="{path:'/platformmant'}" >
-          <el-menu-item index="/platformmant">
+          <el-menu-item index="/platformmant" style="padding: 0;">
             <i class="el-icon-document"></i>
             <span slot="title">资源中心</span>
           </el-menu-item></router-link>
@@ -57,7 +57,7 @@
                 @open="handleOpen"
                 @close="handleClose">
           <router-link  :to="{path:'/collegesmant'}" >
-            <el-menu-item index="/collegesmant">
+            <el-menu-item index="/collegesmant" style="padding: 0;">
               <i class="el-icon-document"></i>
               <span slot="title">资源中心</span>
             </el-menu-item></router-link>

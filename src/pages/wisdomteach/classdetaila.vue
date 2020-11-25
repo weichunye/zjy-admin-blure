@@ -1,9 +1,9 @@
 <template>
 	<div class="classdetaila">
     <el-container>
-      <el-header><Header/></el-header>
+      <el-header><Header  :activeName="'ls'"/></el-header>
       <el-container>
-        <el-aside width="200px"><Left/></el-aside>
+        <el-aside width="200px"><Left  :activeName="'ls'"/></el-aside>
         <el-main>
         <div class="pre-box content">
           <div class="title-left">
@@ -12,25 +12,23 @@
           </div>
          <div class="text-box">
            <div class="img">
-             <img src="../../assets/img/pic.jpg"/>
+             <img src="http://img.pmphmooc.com//data/jpg//mooc_course/cover_img/2020/10/23/732550f0-ccf6-41b6-98dd-0cd243fc4137.jpg"/>
            </div>
            <div class="text">
              <p>
-               <span>课程名称：</span>人工智能V1
+               <span>课程名称：</span>操作技能-临床急救技能操作
              </p>
              <p>
                <span>开课日期：</span>2020-02-23
              </p>
              <p>
-               <span>课时：</span>32
+               <span>课时：</span>30
              </p>
              <p>
                <span >课程封面：</span>
              </p>
              <p>
-               <span>课程简介：</span>课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课
-               程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课
-               程简介课程简介课程简介
+               <span>课程简介：</span>涵盖了临床医生（医学生）需掌握的临床急救基本操作技能。以视频示教为特色，模拟教学为工具，医学人文和医疗安全贯穿始终，各操作过程均配有规范的视频，对临床操作的重点、难点配图像详细标识，操作视频清晰，有分解动作、慢动作解析和规范化的演示。
              </p>
            </div>
          </div>

@@ -30,10 +30,10 @@
             </el-dialog>
             <div class="pre-box-ul">
                 <ul>
-                  <li>
+                  <li v-for="item of actCourList">
                     <div class="text">
                       <div class="title-top">
-                        <h4><i class="el-icon-s-order"></i>这里是互动课堂标题</h4>
+                        <h4><i class="el-icon-s-order"></i>{{item.name}}</h4>
                       </div>
                       <div class="title-right">
                         <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true">编辑</el-button>
@@ -164,6 +164,9 @@ export default {
         desc2: ''
       },
       formLabelWidth: '120px',
+      actCourList: [{ // 互动课堂列表
+        name: 'ceshi1'
+      }],
       rules: {
         date1: [
           { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
@@ -189,6 +192,8 @@ export default {
         message: '互动课程添加成功',
         type: 'success'
       });
+      let bewObj = {name: this.input}
+      this.actCourList.push(bewObj)
     },
     handassignments() {
       this.assignments=false
