@@ -34,7 +34,7 @@
          </div>
           <el-row>
             <el-col :span="24" class="botton-con">
-              <router-link  :to="{path:'/addcourse',query:{id:'1'}}" >
+              <router-link  :to="{path:'/addcourse',query:{id:'1',type: '编辑', classForm: classForm}}" >
                 <el-button type="primary" class="btn-creat-class" plain>编辑互动课程</el-button>
               </router-link>
               <router-link  :to="{path:'/addclassroom',query:{id:'4'}}" >
@@ -62,13 +62,11 @@ import Left from '@/components/leftcon.vue'
 			return {
         creatClassVisible:false,
         classForm:{
-          name:'人工智能V1',
-          time:'32',
+          name:'操作技能-临床急救技能操作',
+          time:'30',
           region:'bixiu',
           startTime:'2020-02-23',
-          desc:'课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课\n' +
-            '         程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课\n' +
-            '         程简介课程简介课程简介'
+          desc:'涵盖了临床医生（医学生）需掌握的临床急救基本操作技能。以视频示教为特色，模拟教学为工具，医学人文和医疗安全贯穿始终，各操作过程均配有规范的视频，对临床操作的重点、难点配图像详细标识，操作视频清晰，有分解动作、慢动作解析和规范化的演示。'
         }
       }
 		},

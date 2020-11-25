@@ -9,9 +9,9 @@
           <div class="course-main">
             <div class="title">
                 <h2>互动课程</h2>
-              <el-button type="primary" class="right-bottom" plain><router-link  :to="{path:'/addcourse',query:{id:'3'}}" >新建互动课程</router-link></el-button>
+              <el-button type="primary" class="right-bottom" plain><router-link  :to="{path:'/addcourse',query:{id:'3', type: '新增'}}" >新建互动课程</router-link></el-button>
             </div>
-            <ul class="course-ul"><router-link  :to="{path:'/classdetaila',query:{id:'2'}}" >
+            <ul class="course-ul"><router-link  :to="{path:'/classdetaila',query:{id:'2', type: '新增'}}" >
               <li v-for="item of dataList">
                 <span class="img">
                   <!-- <img src="../../assets/img/pic.jpg"/> -->
@@ -89,6 +89,9 @@
       computed:{
 
       },
+	  created(){
+	        	this.getParams()
+	      },
 		mounted() {
 
 
@@ -117,13 +120,22 @@
         }
       }
     },
-		methods: {
+	methods: {
       handleClick() {
         var _this=this
         _this.$router.push({path:"/coursepage"})
-      }
+      },
+	  getParams(){
+			// 取到路由带过来的参数
+			const routerParams = this.$route.query.classForm
+			console.log(routerParams)
+			// 将数据放在当前组件的数据内
+			if (routerParams != null && routerParams !=undefined && routerParams != {}) {
+				this.dataList.push(routerParams)
+			}
+		}
     }
-	}
+}
 </script>
 <style lang="less">
   .warp-conetnt{

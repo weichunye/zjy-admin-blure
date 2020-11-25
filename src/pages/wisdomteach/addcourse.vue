@@ -71,18 +71,20 @@ export default {
     return {
       creatClassVisible:false,
       classForm:{
-        name:'人工智能V1',
-        time:'32',
-        region:'bixiu',
-        startTime:'2020-02-23',
-        desc:'课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课\n' +
-          '         程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课\n' +
-          '         程简介课程简介课程简介'
-      }
+        name:'',
+        time:'',
+        region:'',
+        startTime:'',
+        desc:''
+      },
+			type: ''
     }
   },
   computed:{
 
+  },
+  created () {
+  	this.getParams()
   },
   mounted() {
 
@@ -96,11 +98,34 @@ export default {
         message: '课程修改成功',
         type: 'success'
       });
-
-    }
-
-  }
-}
+	  let _this = this
+		if(this.type == '编辑') {
+			this.$router.push({
+				path: '/enter',
+				query: {
+				 }
+			})
+		} else {
+			this.$router.push({
+				path: '/enter',
+				query: {
+				 classForm: _this.classForm,
+				 }
+			})
+		}
+  },
+  getParams(){ // 判断新增还是编辑
+		this.type = this.$route.query.type
+		if(this.type == '编辑') {
+			this.classForm = this.$route.query.classForm
+		} else {
+			this.classForm = {}
+		}
+	},
+  changeUpload (file) {
+		console.log(file)
+	}
+}}
 </script>
 <style lang="less">
 .addcourse {
