@@ -1,13 +1,13 @@
 <template>
 	<div class="header-lessons">
       <div class="logo">
-        LOGO
+        LOGO<span style="font-size:12px; color:#00a0e9;">(第二版)</span>
       </div>
       <div class="right-text">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
           <el-submenu index="1">
             <template slot="title">
-              <span class="text">{{this.activeName=="ls"?"老师名称":this.activeName=="xs"?"学生名称":this.activeName=="pt"?"平台管理员姓名":"院校管理员名称"}}</span>
+              <span class="text">{{this.activeName=="ls"?"赵雨泽":this.activeName=="xs"?"钱浩明":this.activeName=="pt"?"李雪菲":"孙春婷"}}</span>
                 <span style="color: #00a0e9;">{{this.activeName=="ls"?"老师":this.activeName=="xs"?"学生":this.activeName=="pt"?"平台管理员":"院校管理员"}}</span>
 <!--                  <span class="img">-->
 <!--&lt;!&ndash;                    <el-avatar :size="50" :src="circleUrl"></el-avatar>&ndash;&gt;-->

@@ -5,6 +5,7 @@ import Addcourse from '@/pages/wisdomteach/addcourse'
 import ClassDetaila from '@/pages/wisdomteach/classdetaila'
 import Addclassroom from '@/pages/wisdomteach/addclassroom'
 import Resources from '@/pages/wisdomteach/resources'
+import Rescontent from '@/pages/wisdomteach/rescontent'
 import Respage from '@/pages/wisdomteach/respage'
 import Collegesmant from '@/pages/collegesmant/collegesmant'
 import Platformmant from '@/pages/platformmant/platformmant'
@@ -80,6 +81,14 @@ export default new Router({
       meta:{title:'资源中心'},
       component: Resources
     },
+    // 共享
+    {
+      path: '/rescontent',
+      name: 'Rescontent',
+      meta:{title:'资源中心'},
+      component: Rescontent
+    },
+    // 共享
     {
       path: '/resources-s',
       name: 'ResourcesS',

@@ -130,7 +130,7 @@
   .warp-conetnt{
     margin:0 auto;
     display: block;
-    min-width:1200px;
+    min-width:1100px;
     overflow: auto;
   }
 	.enter {

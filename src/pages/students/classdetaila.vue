@@ -1,5 +1,5 @@
 <template>
-	<div class="classdetaila">
+	<div class="classdetaila warp-conetnt">
     <el-container>
       <el-header><Header  :activeName="'xs'"/></el-header>
       <el-container>

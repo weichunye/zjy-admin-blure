@@ -74,7 +74,7 @@
     <div class="close-btn" @click="outSharing">
       退出共享
     </div>
-    <img id="imgPre"   style="display: none; position: fixed; left: 5%;top:5%;width:90%;height:90%; z-index: 10000;"  src="../assets/img/pic-img.png" />
+    <iframe style="display: none; position: fixed; left:5%;top:3%;width:90%;height:90%; z-index: 10000;"  id="imgPre" src="http://127.0.0.1:8090/#/rescontent"></iframe>
     <div style="display: none" class="marking"></div>
     <el-dialog
         title="共享屏幕"

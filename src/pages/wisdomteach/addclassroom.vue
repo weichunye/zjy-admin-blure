@@ -1,5 +1,5 @@
 <template>
-  <div class="addclassroom">
+  <div class="addclassroom warp-conetnt">
     <el-container>
       <el-header><Header   :activeName="'ls'"/></el-header>
       <el-container>
@@ -38,7 +38,11 @@
                       <div class="title-right">
                         <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true">编辑</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="assignments = true">添加课程作业</el-button>
-                        <el-button type="primary" class="right-bottom" plain @click="activities = true">添加课堂活动</el-button>
+<!--                        <el-button type="primary" class="right-bottom" plain @click="activities = true">添加课堂活动</el-button>-->
+                        <el-button type="primary" class="right-bottom" plain @click="activvote = true">添加投票</el-button>
+                        <el-button type="primary" class="right-bottom" plain @click="actiSign = true">签到</el-button>
+                        <el-button type="primary" class="right-bottom" plain @click="activities = true">添加讨论</el-button>
+                        <el-button type="primary" class="right-bottom" plain @click="answer = true">抢答</el-button>
                       </div>
                     </div>
                   </li>
@@ -75,45 +79,85 @@
                 </span>
                 </el-dialog>
                 <el-dialog
-                title="课堂活动"
-                :visible.sync="activities"
+                title="添加投票"
+                :visible.sync="activvote"
                 class="title-activities"
                 width="40%"
-                :before-close="handactivities">
-                  <template>
-                    <el-tabs v-model="activeName" @tab-click="handleClick">
-                      <el-tab-pane label="讨论" name="first">
-                        <el-form :model="form">
-                          <el-form-item label="讨论名称">
-                            <el-input v-model="form.name" autocomplete="off"></el-input>
-                          </el-form-item>
-                          <el-form-item label="讨论描述">
-                            <el-input type="textarea" v-model="form.desc3"></el-input>
-                          </el-form-item>
-                        </el-form>
-                      </el-tab-pane>
-                      <el-tab-pane label="签到" name="second">
-                        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-                          <el-form-item label="签到姓名" >
-                            <el-input v-model="form.title" autocomplete="off"></el-input>
-                          </el-form-item>
-                          <el-form-item label="签到时间" required>
-                            <el-col :span="11">
-                              <el-form-item prop="date1">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date4" style="width: 100%;"></el-date-picker>
-                              </el-form-item>
-                            </el-col>
-                          </el-form-item>
-                          <el-form-item label="签到地点" >
-                            <el-input v-model="form.place" autocomplete="off"></el-input>
-                          </el-form-item>
-                        </el-form>
-                      </el-tab-pane>
-                    </el-tabs>
-                  </template>
+                :before-close="handactiactivvote">
+                  <div class="creatClass-dia">
+                    <el-form ref="form" :model="discussForm" label-width="80px">
+                      <el-form-item label="投票名称">
+                        <el-input v-model="discussForm.name"></el-input>
+                      </el-form-item>
+                      <el-form-item label="投票描述" prop="desc">
+                        <el-input type="textarea" v-model="discussForm.desc"></el-input>
+                      </el-form-item>
+                      <el-form-item label="投票选项">
+                        <el-form-item label="选项A" style="margin:5px auto;">
+                          <el-input v-model="discussForm.optionsA"></el-input>
+                        </el-form-item>
+                        <el-form-item label="选项B" style="margin:5px auto;">
+                          <el-input v-model="discussForm.optionsB"></el-input>
+                        </el-form-item>
+                        <el-form-item label="选项C" style="margin:5px auto;">
+                          <el-input v-model="discussForm.optionsC"></el-input>
+                        </el-form-item>
+                      </el-form-item>
+                    </el-form>
+                  </div>
+                <span slot="footer" class="dialog-footer">
+                  <el-button @click="activvote = false">取 消</el-button>
+                  <el-button type="primary" @click="handactiactivvote">添 加</el-button>
+                </span>
+              </el-dialog>
+                <el-dialog
+                  title="添加讨论"
+                  :visible.sync="activities"
+                  class="title-activities"
+                  width="40%"
+                  :before-close="handactivities">
+                <template>
+                  <el-form :model="form">
+                    <el-form-item label="讨论名称">
+                      <el-input v-model="form.name" autocomplete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="讨论描述">
+                      <el-input type="textarea" v-model="form.desc3"></el-input>
+                    </el-form-item>
+                  </el-form>
+                </template>
                 <span slot="footer" class="dialog-footer">
                   <el-button @click="activities = false">取 消</el-button>
                   <el-button type="primary" @click="handactivities">添 加</el-button>
+                </span>
+              </el-dialog>
+<!--                签到-->
+                <el-dialog
+                  title="签到"
+                  :visible.sync="actiSign"
+                  class="title-activities"
+                  width="30%"
+                  :before-close="handactiactiSign">
+                  <div class="screen-box">
+                    <img src="../../assets/img/erweim.png" alt="">
+                    <p>请用手机微信扫描图中二维码</p>
+                  </div>
+              </el-dialog>
+<!--              抢答-->
+              <el-dialog
+                  title="抢答"
+                  :visible.sync="answer"
+                  class="title-activities"
+                  width="30%"
+                  :before-close="handactianswer">
+                <el-form ref="form" :model="form" label-width="100px">
+                  <el-form-item label="限制抢答人数">
+                    <el-input v-model="form.name1"></el-input>
+                  </el-form-item>
+                </el-form>
+                <span slot="footer" class="dialog-footer">
+                  <el-button @click="answer = false">取 消</el-button>
+                  <el-button type="primary" @click="handactianswer">确 认</el-button>
                 </span>
               </el-dialog>
             </div>
@@ -138,6 +182,9 @@ export default {
       dialogVisible: false,
       assignments:false,
       activities:false,
+      activvote:false,
+      actiSign:false,
+      answer:false,
       activeName: 'second',
       input: '',
       fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
@@ -145,6 +192,14 @@ export default {
         name: '',
         desc:'',
         title:'',
+        desc3:'',
+      },
+      discussForm:{
+        name:'',
+        desc:'',
+        optionsA:'',
+        optionsB:'',
+        optionsC:'',
       },
       ruleForm: {
         name: '',
@@ -205,15 +260,30 @@ export default {
     handactivities(){
       this.activities=false
       this.$message({
-        message: '添加课堂活动',
+        message: '添加讨论成功',
         type: 'success'
       });
     },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
+    handactiactivvote(){
+      this.activvote=false
+      this.$message({
+        message: '添加投票成功',
+        type: 'success'
+      });
     },
-    handlePreview(file) {
-      console.log(file);
+    handactiactiSign(){
+      this.actiSign=true
+      setTimeout(()=>{
+        this.actiSign=false
+      },3000)
+
+    },
+    handactianswer(){
+      this.answer=false
+      this.$message({
+        message: '抢答设置完毕',
+        type: 'success'
+      });
     },
     handleExceed(files, fileList) {
       this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
@@ -366,6 +436,27 @@ export default {
       padding:10px 20px;
     }
 
+  }
+  .el-dialog__footer{
+    .el-button--primary{
+      span{
+        color: #ffffff;
+      }
+    }
+  }
+  .screen-box{
+    width: 100%;
+    text-align: center;
+    img{
+      width: 300px;
+      height: 300px;
+    }
+    p{
+      font-size: 16px;
+      color: #999;
+      line-height: 40px;
+      text-align: center;
+    }
   }
 }
 

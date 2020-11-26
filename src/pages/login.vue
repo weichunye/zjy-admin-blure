@@ -1,24 +1,26 @@
 <template>
-  <div class="login">
+  <div class="login warp-conetnt">
     <div class="pre-box content">
-      <h2>互动教学登录</h2>
-      <div class="login-box">
-        <el-form :model="loginForm" ref="loginForm" label-width="0px" class="demo-dynamic">
-          <el-form-item
-                  :rules="[
+      <div class="login-fo">
+        <h2>互动教学登录</h2>
+        <div class="login-box">
+          <el-form :model="loginForm" ref="loginForm" label-width="0px" class="demo-dynamic">
+            <el-form-item
+                :rules="[
      { required: true, message: '请输入用户名', trigger: 'blur' },]"
-          >
-            <el-input @keyup.enter.native="toLogin('loginForm')" prefix-icon="el-icon-user" v-model="loginForm.name"></el-input>
-          </el-form-item>
-          <el-form-item
-                  label=""
-                  :rules="[
+            >
+              <el-input @keyup.enter.native="toLogin('loginForm')" placeholder="请输入用户名" prefix-icon="el-icon-user" v-model="loginForm.name"></el-input>
+            </el-form-item>
+            <el-form-item
+                label=""
+                :rules="[
      { required: true, message: '请输入密码', trigger: 'blur' },]"
-          >
-            <el-input @keyup.enter.native="toLogin('loginForm')" prefix-icon="el-icon-unlock" v-model="loginForm.passWord"></el-input>
-          </el-form-item>
-        </el-form>
-        <div @click="toLogin('loginForm')" class="btn-submit">登 录</div>
+            >
+              <el-input type="password" @keyup.enter.native="toLogin('loginForm')" placeholder="请输入密码" prefix-icon="el-icon-unlock" v-model="loginForm.passWord"></el-input>
+            </el-form-item>
+          </el-form>
+          <div @click="toLogin('loginForm')" class="btn-submit">登 录</div>
+        </div>
       </div>
     </div>
 
@@ -82,35 +84,46 @@
     background-size: 100% 100%;
     .content {
       overflow: hidden;
-      margin-top: 15px;
-      min-height: 600px;
-
+      //margin-top: 15px;
+      //margin-top: 15px;
+      //min-height: 600px;
+      height:100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .login-fo{
+        width:420px;
+        display: block;
+      }
       h2{
-        margin: 40px 0;
+        margin: 20px 0;
         width: 100%;
         font-size: 26px;
         color: #ffffff;
         text-align: center;
       }
       .login-box{
-        margin: 50px auto;
-        padding: 50px;
-        width: 300px;
+        margin: 20px auto 30px;
+        padding:10px 50px;
+        width: 100%;
         height: 200px;
+        box-sizing: border-box;
         /*background: -moz-linear-gradient(top, #b5cadc 40%, #ccd5dc 100%);*/
         /*background: -webkit-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
         /*background: -o-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
         /*background: -ms-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
         /*background: linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
         /*border-radius: 15px;*/
-
+        .el-form-item__content{
+          width:100%;
+        }
       }
       .btn-submit{
         /*margin: 50px 0 0 100px;*/
-        width: 300px;
+        width: 100%;
         height: 40px;
         line-height: 40px;
-        font-size: 20px;
+        font-size: 18px;
         color: #fff;
         text-align: center;
         background: #1e6abc;

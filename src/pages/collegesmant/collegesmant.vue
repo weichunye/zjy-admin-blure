@@ -1,6 +1,6 @@
 
 <template>
-  <div class="collegesmant">
+  <div class="collegesmant warp-conetnt">
     <el-container>
     <el-header><Header :activeName="'yx'"/></el-header>
       <el-container>

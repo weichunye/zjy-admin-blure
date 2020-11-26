@@ -1,6 +1,6 @@
 
 <template>
-  <div class="collegesmant">
+  <div class="collegesmant warp-conetnt">
     <el-container>
     <el-header><Header :activeName="'pt'"/></el-header>
       <el-container>
@@ -24,7 +24,7 @@
                   <el-button v-else disabled type="info" plain  >审核</el-button>
                 </div>
               </div>
-              <span>{{item.desc}}</span>
+              <span class="span-text">{{item.desc}}</span>
             </li>
             <!-- <li class="active">
               <div class="top">
@@ -182,6 +182,15 @@
         justify-content: center;
         border:1px solid #e3e3e3;
         padding:15px;
+        .span-text{
+          text-overflow: -o-ellipsis-lastline;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
         &.active{
           .top .el-button{
             background: #409EFF;

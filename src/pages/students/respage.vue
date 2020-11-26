@@ -1,5 +1,5 @@
 <template>
-  <div class="respage">
+  <div class="respage warp-conetnt">
     <el-container>
       <el-header><Header  :activeName="'xs'"/></el-header>
       <el-container>
@@ -14,14 +14,15 @@
 <!--              <div class="video-cont">-->
 <!--                <iframe align="center" width="100%" height="170" src="http://img.xuexi111.org/d/file/yingyv/fangfa/2014-07-28/0463cd0a3e0af2926fcf979161c18ee8.jpg"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>-->
 <!--              </div>-->
+              <div class="img-box-p">
+                <img src="../../assets/img/pic_1.jpg" alt="">
+              </div>
               <div class="title-bottom">
                 <h3>《新概念英语》 1-4册 学生用书</h3>
                 <span>日期:2014-07-28</span>
                 <span>PDF</span>
                 <p>《新概念英语》 1-4册 学生用书','desc':'《新概念英语》（New Concept English）作为享誉全球的最为经典地道的英语教材，以其严密的体系性、严谨的科学性、精湛的实用性、浓郁的趣味性深受英语学习者的青睐。</p>
-              </div>
-              <div class="img-box-p">
-                <img src="../../assets/img/pic_1.jpg" alt="">
+                  <span>当前预览时长：23分钟</span>
               </div>
             </div>
           </div>

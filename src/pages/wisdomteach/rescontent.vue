@@ -1,10 +1,8 @@
 
 <template>
-  <div class="resources warp-conetnt">
+  <div class="resources-A warp-conetntA">
     <el-container>
-      <el-header><Header :activeName="'ls'"/></el-header>
       <el-container>
-        <el-aside width="200px"><Left :activeName="'ls'"/></el-aside>
         <el-main>
           <div class="course-main">
             <div class="title">
@@ -131,10 +129,9 @@ export default {
 }
 </script>
 <style lang="less">
-.warp-conetnt{
+.warp-conetntA{
   margin:0 auto;
   display: block;
-  min-width:1100px;
   overflow: auto;
 }
 .btn-creat-class{
@@ -179,7 +176,7 @@ export default {
     display: block;
   }
 }
-.resources {
+.resources-A {
   width:100%;
   height:100%;
   display: block;
@@ -189,7 +186,7 @@ export default {
   }
   .el-main{
     height: calc(100% - 100px);
-    overflow: auto;
+    overflow: initial;
     background: #f4f4f4;
     .course-main{
       height:100%;
@@ -248,7 +245,7 @@ export default {
         margin:0 10px;
       }
       .grid-content{
-        width:100%;
+        //width:100%;
         display: block;
         padding:10px 15px;
         margin-bottom:20px;

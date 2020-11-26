@@ -1,5 +1,5 @@
 <template>
-  <div class="addcourse">
+  <div class="addcourse warp-conetnt">
     <el-container>
       <el-header><Header   :activeName="'ls'"/></el-header>
       <el-container>
@@ -228,6 +228,13 @@ export default {
   }
   .el-form-item__label{
     text-align: left;
+  }
+  .el-form-item__content{
+    .el-button--primary{
+      span{
+        color: #ffffff;
+      }
+    }
   }
 }
 
