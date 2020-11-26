@@ -1,54 +1,53 @@
 <template>
-	<div class="login">
+  <div class="login">
     <div class="pre-box content">
       <h2>互动教学登录</h2>
       <div class="login-box">
-        <el-form :model="loginForm" ref="loginForm" label-width="100px" class="demo-dynamic">
+        <el-form :model="loginForm" ref="loginForm" label-width="0px" class="demo-dynamic">
           <el-form-item
-            label="用户名"
-            :rules="[
-      { required: true, message: '请输入用户名', trigger: 'blur' },]"
+                  :rules="[
+     { required: true, message: '请输入用户名', trigger: 'blur' },]"
           >
-            <el-input @keyup.enter.native="toLogin('loginForm')" v-model="loginForm.name"></el-input>
+            <el-input @keyup.enter.native="toLogin('loginForm')" prefix-icon="el-icon-user" v-model="loginForm.name"></el-input>
           </el-form-item>
           <el-form-item
-            label="密码"
-            :rules="[
-      { required: true, message: '请输入密码', trigger: 'blur' },]"
+                  label=""
+                  :rules="[
+     { required: true, message: '请输入密码', trigger: 'blur' },]"
           >
-            <el-input @keyup.enter.native="toLogin('loginForm')" v-model="loginForm.passWord"></el-input>
+            <el-input @keyup.enter.native="toLogin('loginForm')" prefix-icon="el-icon-unlock" v-model="loginForm.passWord"></el-input>
           </el-form-item>
         </el-form>
         <div @click="toLogin('loginForm')" class="btn-submit">登 录</div>
       </div>
     </div>
 
-	</div>
+  </div>
 </template>
 
 <script>
-	export default {
-		name: 'Login',
-		components: {
+  export default {
+    name: 'Login',
+    components: {
 
 
-		},
-		data() {
-			return {
+    },
+    data() {
+      return {
         loginForm:{
           name:'',
           passWord:''
         }
       }
-		},
-      computed:{
+    },
+    computed:{
 
-      },
-		mounted() {
+    },
+    mounted() {
 
 
-		},
-		methods: {
+    },
+    methods: {
       toLogin(formName){
         this.$refs[formName].validate((valid) => {
           if (valid) {
@@ -72,44 +71,49 @@
         });
       }
     }
-	}
+  }
 </script>
 <style lang="less">
-	.login {
+  .login {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background:url("../assets/img/login_bg.jpg") no-repeat;
+    background-size: 100% 100%;
     .content {
       overflow: hidden;
       margin-top: 15px;
       min-height: 600px;
-      background: #fff;
+
       h2{
-        margin: 20px 0;
+        margin: 40px 0;
         width: 100%;
         font-size: 26px;
-        color: #398f3b;
+        color: #ffffff;
         text-align: center;
       }
       .login-box{
         margin: 50px auto;
         padding: 50px;
-        width: 400px;
+        width: 300px;
         height: 200px;
-        background: -moz-linear-gradient(top, #b5cadc 40%, #ccd5dc 100%);
-        background: -webkit-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);
-        background: -o-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);
-        background: -ms-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);
-        background: linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);
-        border-radius: 15px;
+        /*background: -moz-linear-gradient(top, #b5cadc 40%, #ccd5dc 100%);*/
+        /*background: -webkit-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
+        /*background: -o-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
+        /*background: -ms-linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
+        /*background: linear-gradient(top,  #b5cadc 40%, #ccd5dc 100%);*/
+        /*border-radius: 15px;*/
 
       }
       .btn-submit{
-      margin: 50px 0 0 100px;
+        /*margin: 50px 0 0 100px;*/
         width: 300px;
         height: 40px;
         line-height: 40px;
         font-size: 20px;
         color: #fff;
         text-align: center;
-        background: #f69d29;
+        background: #1e6abc;
         border-radius: 5px;
         cursor: pointer;
       }

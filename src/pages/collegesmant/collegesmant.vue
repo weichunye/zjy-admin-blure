@@ -3,77 +3,78 @@
   <div class="collegesmant">
     <el-container>
     <el-header><Header :activeName="'yx'"/></el-header>
-    <div class="collegesmant-cont">
+      <el-container>
       <el-aside width="200px"><Left :activeName="'yx'"/></el-aside>
-      <div class="sechinput">
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
-        <el-button type="primary" icon="el-icon-search">搜索</el-button>
-      </div>
-      <ul style="margin-left: 150px;display: flex;flex-wrap: wrap;">
-        <li v-for="(item, index) of dataList" :key='index' style="height: 120px;">
-          <div class="top">
-            <h4 class="title">{{item.name}}</h4>
-            <!-- <div class="right">
-              <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true" >审核</el-button>
-              <el-button type="primary" class="right-bottom" plain>上传</el-button>
-            </div> -->
-            <div class="right">
-              <el-button  v-if="!item.isAccess"  type="primary"  plain @click="dialogVisible = true,itemNum=index" >审核</el-button>
-              <el-button v-else  disabled  type="info"  plain >审核</el-button>
-              <el-button  v-if="!item.isUpload" type="info" disabled plain >上传</el-button>
-              <el-button  v-else  type="primary"  plain @click="uploadVisible=true">上传</el-button>
+        <el-main>
+        <div class="collegesmant-cont">
+          <div class="sechinput">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-button type="primary" icon="el-icon-search">搜索</el-button>
+          </div>
+          <ul style="display: flex;flex-wrap: wrap;">
+            <li v-for="(item, index) of dataList" :key='index' style="height: 120px;">
+              <div class="top">
+                <h4 class="title">{{item.name}}</h4>
+                <!-- <div class="right">
+                  <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true" >审核</el-button>
+                  <el-button type="primary" class="right-bottom" plain>上传</el-button>
+                </div> -->
+                <div class="right">
+                  <el-button  v-if="!item.isAccess"  type="primary"  plain @click="dialogVisible = true,itemNum=index" >审核</el-button>
+                  <el-button v-else  disabled  type="info"  plain >审核</el-button>
+                  <el-button  v-if="!item.isUpload" type="info" disabled plain >上传</el-button>
+                  <el-button  v-else  type="primary"  plain @click="uploadVisible=true">上传</el-button>
+                </div>
+              </div>
+              <span>{{item.desc}}</span>
+            </li>
+            <!-- <li class="active">
+              <div class="top">
+                <h4 class="title">这里是资源标题这里是资源标题</h4>
+                <div class="right">
+                  <el-button type="info" class="right-bottom" plain @click="dialogVisible = true" disabled>审核</el-button>
+                  <el-button type="info" class="right-bottom" plain disabled>上传</el-button>
+                </div>
+              </div>
+              <span>这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述</span>
+            </li> -->
+          </ul>
+          <el-dialog
+            title="提示"
+            :visible.sync="dialogVisible"
+            class="title-Class"
+            width="40%"
+            :before-close="handleClose">
+            <div class="text">
+              <span>是否审核通过？</span>
             </div>
-          </div>
-          <span>{{item.desc}}</span>
-        </li>
-        <!-- <li class="active">
-          <div class="top">
-            <h4 class="title">这里是资源标题这里是资源标题</h4>
-            <div class="right">
-              <el-button type="info" class="right-bottom" plain @click="dialogVisible = true" disabled>审核</el-button>
-              <el-button type="info" class="right-bottom" plain disabled>上传</el-button>
-            </div>
-          </div>
-          <span>这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述这里是资源描述</span>
-        </li> -->
-      </ul>
-      <el-dialog
-        title="提示"
-        :visible.sync="dialogVisible"
-        class="title-Class"
-        width="40%"
-        :before-close="handleClose">
-        <div class="text">
-          <span>是否审核通过？</span>
-        </div>
-        <span slot="footer" class="dialog-footer">
-                <el-button>否</el-button>
-                <el-button type="primary" @click="handleClose">是</el-button>
-              </span>
-      </el-dialog>
-      <el-dialog
-          title="审核"
-          :visible.sync="dialogVisible"
-          class="title-Class"
-          width="40%"
-          :before-close="handleClose">
-          <div class="text">
-            <el-form ref="form" :model="classForm" label-width="160px">
-              <el-form-item label="审核是否通过">
-                <el-radio v-model="radio" label="1">是</el-radio>
-                <el-radio v-model="radio" label="0">否</el-radio>
-              </el-form-item>
-              <el-form-item v-if="radio==0" label="审核意见" prop="desc">
-                <el-input type="textarea" v-model="classForm.desc"></el-input>
-              </el-form-item>
-            </el-form>
-          </div>
-          <span slot="footer" class="dialog-footer">
-                  <el-button @click="dialogVisible=false">取消</el-button>
-                  <el-button type="primary" @click="handleClose">确定</el-button>
-                </span>
-        </el-dialog>
-
+            <span slot="footer" class="dialog-footer">
+                    <el-button>否</el-button>
+                    <el-button type="primary" @click="handleClose">是</el-button>
+                  </span>
+          </el-dialog>
+          <el-dialog
+              title="审核"
+              :visible.sync="dialogVisible"
+              class="title-Class"
+              width="40%"
+              :before-close="handleClose">
+              <div class="text">
+                <el-form ref="form" :model="classForm" label-width="160px">
+                  <el-form-item label="审核是否通过">
+                    <el-radio v-model="radio" label="1">是</el-radio>
+                    <el-radio v-model="radio" label="0">否</el-radio>
+                  </el-form-item>
+                  <el-form-item v-if="radio==0" label="审核意见" prop="desc">
+                    <el-input type="textarea" v-model="classForm.desc"></el-input>
+                  </el-form-item>
+                </el-form>
+              </div>
+              <span slot="footer" class="dialog-footer">
+                      <el-button @click="dialogVisible=false">取消</el-button>
+                      <el-button type="primary" @click="handleClose">确定</el-button>
+                    </span>
+            </el-dialog>
         <el-dialog
           title="提示"
           :visible.sync="uploadVisible"
@@ -85,7 +86,9 @@
       <el-button type="primary" @click="handleUpload">确 定</el-button>
       </span>
       </el-dialog>
-    </div>
+        </div>
+        </el-main>
+      </el-container>
     </el-container>
   </div>
 </template>
@@ -166,12 +169,13 @@
 .collegesmant{
   //width:100%;
   display: block;
-  padding:20px 0 20px 0;
-  margin:100px 60px;
-  background: #ffffff;
+  padding:0;
+  //margin:100px 60px;
+  //background: #ffffff;
   .collegesmant-cont{
     min-height:300px;
     display: block;
+    background: #ffffff;
     .sechinput{
       display: flex;
       padding:20px 20px;
@@ -186,7 +190,7 @@
       .el-button{
         float:right;
         margin:0 10px;
-        background: #3621fb;
+        background: #409EFF;
         .el-icon-search{
           color: #ffffff;
         }
@@ -207,21 +211,21 @@
         padding:15px;
         &.active{
           .top .el-button{
-            background: #e3e3e3;
+            background: #409EFF;
             span{
-              color:#B3B3B3;
+              color:#409EFF;
             }
             &:hover{
-              background: #e3e3e3;
+              background: #409EFF;
               span{
-                color:#B3B3B3;
+                color:#409EFF;
               }
             }
           }
         }
         &:hover{
-          border-color:#3621fb;
-          box-shadow: 0 18px 30px rgba(54,33,251,.09);
+          border-color:#409EFF;
+          box-shadow: 0 18px 30px rgba(64,158,255,.09);
         }
         &:nth-child(2n){
           margin-right:0;
@@ -242,17 +246,17 @@
             line-height:22px;
             height:auto;
             span{
-              color: #3621fb;
+              color: #409eff;
               font-size:12px;
             }
             &:hover{
-              background: #3621fb;
+              background: #409eff;
               span{
                 color: #ffffff;
               }
             }
             &:focus{
-              background: #3621fb;
+              background: #409eff;
               span{
                 color: #ffffff;
               }

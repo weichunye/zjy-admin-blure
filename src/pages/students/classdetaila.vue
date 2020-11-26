@@ -7,7 +7,7 @@
         <el-main>
         <div class="pre-box content">
           <div class="title-left">
-            <span class="link"><router-link  :to="{path:'/enter',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
+            <span class="link"><router-link  :to="{path:'/my-course',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
             <h3>课程详情</h3>
           </div>
          <div class="text-box">
@@ -35,16 +35,16 @@
              </p>
            </div>
          </div>
-          <el-row>
-            <el-col :span="24" class="botton-con">
-              <router-link  :to="{path:'/addcourse',query:{id:'1'}}" >
-                <el-button type="primary" class="btn-creat-class" plain>编辑互动课程</el-button>
-              </router-link>
-              <router-link  :to="{path:'/addclassroom',query:{id:'4'}}" >
-                <el-button type="primary" class="btn-creat-class" plain>新建互动课堂</el-button>
-              </router-link>
-            </el-col>
-          </el-row>
+<!--          <el-row>-->
+<!--            <el-col :span="24" class="botton-con">-->
+<!--              <router-link  :to="{path:'/addcourse',query:{id:'1'}}" >-->
+<!--                <el-button type="primary" class="btn-creat-class" plain>编辑互动课程</el-button>-->
+<!--              </router-link>-->
+<!--              <router-link  :to="{path:'/addclassroom',query:{id:'4'}}" >-->
+<!--                <el-button type="primary" class="btn-creat-class" plain>新建互动课堂</el-button>-->
+<!--              </router-link>-->
+<!--            </el-col>-->
+<!--          </el-row>-->
         </div>
         </el-main>
       </el-container>

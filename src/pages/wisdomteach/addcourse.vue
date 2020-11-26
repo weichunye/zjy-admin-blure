@@ -202,6 +202,7 @@ export default {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    float:initial;
     span{
       color: #409EFF;
     }

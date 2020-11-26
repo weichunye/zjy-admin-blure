@@ -8,13 +8,14 @@
           <el-submenu index="1">
             <template slot="title">
               <span class="text">{{this.activeName=="ls"?"老师名称":this.activeName=="xs"?"学生名称":this.activeName=="pt"?"平台管理员姓名":"院校管理员名称"}}</span>
-                <span style="color: #000; background: #b5cadc">{{this.activeName=="ls"?"老师":this.activeName=="xs"?"学生":this.activeName=="pt"?"平台管理员":"院校管理员"}}</span>
-                  <span class="img">
-                    <el-avatar :size="50" :src="circleUrl"></el-avatar>
-                  </span>
+                <span style="color: #00a0e9;">{{this.activeName=="ls"?"老师":this.activeName=="xs"?"学生":this.activeName=="pt"?"平台管理员":"院校管理员"}}</span>
+<!--                  <span class="img">-->
+<!--&lt;!&ndash;                    <el-avatar :size="50" :src="circleUrl"></el-avatar>&ndash;&gt;-->
+<!--                    <img src="../assets/img/img-gr.png"/>-->
+<!--                  </span>-->
             </template>
               <router-link  :to="{path:'/'}" >
-            <el-menu-item index="2-1">退出登录</el-menu-item>
+                <el-menu-item index="2-1">退出登录</el-menu-item>
               </router-link>
           </el-submenu>
         </el-menu>
@@ -117,6 +118,16 @@
           display: block;
         }
       }
+      .img{
+        width:50px;
+        height:50px;
+        display: inline-block;
+        img{
+          display: block;
+          width:100%;
+          height:100%;
+        }
+      }
       .el-submenu__title{
         padding:0;
         border-bottom:none;
@@ -128,6 +139,13 @@
     }
 
 	}
+  .el-menu--popup{
+    text-align: center;
+    min-width:120px;
+    .router-link-active{
+      text-align: center;
+    }
+  }
 
 
 

@@ -9,19 +9,17 @@
           <div class="course-main">
             <div class="title">
               <h2>资源中心</h2>
-              <button class="btn-creat-class" @click="creatClassVisible=true">添加资源</button>
+              <button  class="right-bottom" @click="creatClassVisible=true">添加资源</button>
              <!-- <el-button type="primary" class="right-bottom" plain><router-link  :to="{path:'/addcourse',query:{id:'3'}}" >新建互动课程</router-link></el-button> -->
             </div>
-            <el-row><router-link  :to="{path:'/respage',query:{id:'1'}}" >
-              <el-col :span="24" v-for="item of dataList">
-                <div class="grid-content">
+     <router-link  :to="{path:'/respage',query:{id:'1'}}" >
+                <div class="grid-content" v-for="item of dataList">
                     <div class="top">
-                        <h4><p class="title-h4"><i class="el-icon-postcard"></i>{{item.name}}</p><em>{{item.time}}</em></h4>
-                        <span>{{item.type==1?"Word":item.type==2?"PDF":"IMG"}}</span>
+                        <h4><p class="title-h4"><!--<i class="el-icon-postcard"></i>-->{{item.name}}</p><em>{{item.time}}</em></h4>
+                        <span style="font-weight: bold; color: slateblue">{{item.type==1?"Word":item.type==2?"PDF":"IMG"}}</span>
                         <div class="p">{{item.desc}}</div>
                     </div>
                 </div>
-              </el-col>
               <!-- <el-col :span="24">
                 <div class="grid-content">
                   <div class="top">
@@ -32,7 +30,6 @@
                 </div>
               </el-col> -->
               </router-link>
-            </el-row>
             <el-dialog
                 title="上传资源"
                 :visible.sync="creatClassVisible"
@@ -198,6 +195,9 @@ export default {
       height:100%;
       background: #ffffff;
       padding:0 10px;
+      .el-row{
+        z-index:1;
+      }
       .title{
         margin:0 auto;
         padding:20px 10px;
@@ -215,6 +215,25 @@ export default {
         }
         .right-bottom{
           float:right;
+          display: inline-block;
+          line-height: 1;
+          white-space: nowrap;
+          cursor: pointer;
+          background: #ecf5ff;
+          border: 1px solid #b3d8ff;
+          color: #409EFF;
+          -webkit-appearance: none;
+          text-align: center;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          outline: 0;
+          margin: 0;
+          -webkit-transition: .1s;
+          transition: .1s;
+          font-weight: 500;
+          padding: 12px 20px;
+          font-size: 14px;
+          border-radius: 4px;
           span{
             color: #409EFF;
           }
