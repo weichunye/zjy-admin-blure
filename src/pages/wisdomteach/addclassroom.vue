@@ -18,7 +18,7 @@
               :visible.sync="dialogVisible"
               class="title-Class"
               width="40%"
-              :before-close="handleClose">
+              >
                 <div class="text">
                   <span>课堂标题</span>
                   <el-input v-model="input" placeholder="请输入标题"></el-input>
@@ -38,9 +38,8 @@
                       <div class="title-right">
                         <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true">编辑</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="assignments = true">添加课程作业</el-button>
-<!--                        <el-button type="primary" class="right-bottom" plain @click="activities = true">添加课堂活动</el-button>-->
                         <el-button type="primary" class="right-bottom" plain @click="activvote = true">添加投票</el-button>
-                        <el-button type="primary" class="right-bottom" plain @click="actiSign = true">签到</el-button>
+                        <el-button type="primary" class="right-bottom" plain @click="handactiactiSign">签到</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="activities = true">添加讨论</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="answer = true">抢答</el-button>
                       </div>
@@ -52,7 +51,7 @@
                   :visible.sync="assignments"
                   class="title-Class"
                   width="40%"
-                  :before-close="handassignments">
+                  >
                   <el-form ref="form" :model="form" label-width="80px">
                     <el-form-item label="作业名称">
                       <el-input v-model="form.name1"></el-input>
@@ -83,7 +82,7 @@
                 :visible.sync="activvote"
                 class="title-activities"
                 width="40%"
-                :before-close="handactiactivvote">
+                >
                   <div class="creatClass-dia">
                     <el-form ref="form" :model="discussForm" label-width="80px">
                       <el-form-item label="投票名称">
@@ -115,7 +114,7 @@
                   :visible.sync="activities"
                   class="title-activities"
                   width="40%"
-                  :before-close="handactivities">
+                  >
                 <template>
                   <el-form :model="form">
                     <el-form-item label="讨论名称">
@@ -137,10 +136,10 @@
                   :visible.sync="actiSign"
                   class="title-activities"
                   width="30%"
-                  :before-close="handactiactiSign">
+                  >
                   <div class="screen-box">
                     <img src="../../assets/img/erweim.png" alt="">
-                    <p>请用手机微信扫描图中二维码</p>
+                    <p>扫码即可签到</p>
                   </div>
               </el-dialog>
 <!--              抢答-->
@@ -149,7 +148,7 @@
                   :visible.sync="answer"
                   class="title-activities"
                   width="30%"
-                  :before-close="handactianswer">
+                  >
                 <el-form ref="form" :model="form" label-width="100px">
                   <el-form-item label="限制抢答人数">
                     <el-input v-model="form.name1"></el-input>

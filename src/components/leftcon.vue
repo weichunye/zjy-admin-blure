@@ -82,7 +82,7 @@
         width="40%"
         :modal="false"
         class="Sharing-cont"
-        :before-close="handleSharing">
+        >
         <div class="text">
           <span>确定要共享资源中心吗？</span>
       <!--    <div class="demo-image__preview">
