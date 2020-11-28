@@ -117,9 +117,10 @@ export default {
 		}
   },
   getParams(){ // 判断新增还是编辑
-		this.type = this.$route.query.type
+		this.type = this.$route.params.type
 		if(this.type == '编辑') {
-			this.classForm = this.$route.query.classForm
+          this.classForm=this.$route.params.classForm
+          console.log(" this.classForm", this.classForm)
 		} else {
 			this.classForm = {}
 		}

@@ -125,7 +125,7 @@ export default {
         message: '<div class="el-notification-top">资源添加成功 !</div>',
         type: ''
       });
-      let newForm={type:3,name:this.classForm.name,desc:this.classForm.desc}
+      let newForm={type:3,name:this.classForm.name,desc:this.classForm.desc,img:require("../../assets/img/pic11.jpg")}
       _this.dataList.push(newForm)
     },
   }
@@ -185,6 +185,12 @@ export default {
   height:100%;
   display: block;
   background: #fff;
+  .el-notification-top{
+    display: inline-block;
+    padding: 10px 16px;
+    background: #fff;
+    color:#00a0e9;
+  }
   .el-header{
     padding:0;
   }

@@ -34,7 +34,7 @@
          </div>
           <el-row>
             <el-col :span="24" class="botton-con">
-              <router-link  :to="{path:'/addcourse',query:{id:'1',type: '编辑', classForm: classForm}}" >
+              <router-link :to="{name:'Addcourse',params:{classForm:classForm,type: '编辑'}}">
                 <el-button type="primary" class="btn-creat-class" plain>编辑互动课程</el-button>
               </router-link>
               <router-link  :to="{path:'/addclassroom',query:{id:'4'}}" >
@@ -76,6 +76,7 @@ import Left from '@/components/leftcon.vue'
       },
 		mounted() {
       this.resourceData=this.$route.params.resourceData
+          this.classForm=this.$route.params.resourceData
 
 		},
 

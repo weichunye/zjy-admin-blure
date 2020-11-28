@@ -20,7 +20,7 @@
               <div class="title-bottom">
                 <h3>{{respageList.name}}</h3>
                 <span>日期:{{respageList.time}}</span>
-                <span>PDF</span>
+                <span>IMG</span>
                 <p>{{respageList.desc}}</p>
               </div>
             </div>

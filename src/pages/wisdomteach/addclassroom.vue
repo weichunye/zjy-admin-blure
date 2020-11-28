@@ -11,7 +11,7 @@
                 <span class="link"><router-link  :to="{path:'/classdetaila',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
                 <h3>互动课程</h3>
               </div>
-              <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true">添加互动课程</el-button>
+              <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true,type=0,input=''">添加互动课程</el-button>
             </div>
             <el-dialog
               title="提示"
@@ -30,13 +30,13 @@
             </el-dialog>
             <div class="pre-box-ul">
                 <ul>
-                  <li v-for="item of actCourList">
+                  <li v-for="(item,index) of actCourList">
                     <div class="text">
                       <div class="title-top">
                         <h4><i class="el-icon-s-order"></i>{{item.name}}</h4>
                       </div>
                       <div class="title-right">
-                        <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true">编辑</el-button>
+                        <el-button type="primary" class="right-bottom" plain @click="dialogVisible = true,type=index+1,input=item.name">编辑</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="assignments = true">添加课程作业</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="activvote = true">添加投票</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="handactiactiSign">签到</el-button>
@@ -205,6 +205,7 @@ export default {
       actiSign:false,
       answer:false,
       materials:false,
+      type:0,
       activeName: 'second',
       input: '',
       fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
@@ -263,13 +264,23 @@ export default {
   methods: {
     handleClose() {
       this.dialogVisible=false
-      this.$message({
-        dangerouslyUseHTMLString: true,
-        message: '<div class="el-notification-top">互动课程添加成功 !</div>',
-        type: ''
-      });
-      let bewObj = {name: this.input}
-      this.actCourList.push(bewObj)
+      if(this.type==0){
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          message: '<div class="el-notification-top">互动课程添加成功 !</div>',
+          type: ''
+        });
+        let bewObj = {name: this.input}
+        this.actCourList.push(bewObj)
+      }else{
+        this.actCourList[this.type-1].name=this.input
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          message: '<div class="el-notification-top">互动课程编辑成功 !</div>',
+          type: ''
+        });
+      }
+
     },
     handassignments() {
       this.assignments=false
