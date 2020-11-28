@@ -1,7 +1,7 @@
 <template>
 	<div class="header-lessons">
       <div class="logo">
-        LOGO<span style="font-size:12px; color:#00a0e9;">(第二版)</span>
+<!--        LOGO<span style="font-size:12px; color:#00a0e9;">(第二版)</span>-->
       </div>
       <div class="right-text">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">

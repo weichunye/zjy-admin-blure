@@ -42,6 +42,7 @@
                         <el-button type="primary" class="right-bottom" plain @click="handactiactiSign">签到</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="activities = true">添加讨论</el-button>
                         <el-button type="primary" class="right-bottom" plain @click="answer = true">抢答</el-button>
+                        <el-button type="primary" class="right-bottom" plain @click="materials = true">添加备课资料</el-button>
                       </div>
                     </div>
                   </li>
@@ -130,6 +131,25 @@
                   <el-button type="primary" @click="handactivities">添 加</el-button>
                 </span>
               </el-dialog>
+              <el-dialog
+                  title="添加备课资料"
+                  :visible.sync="materials"
+                  width="40%">
+                <div class="creatClass-dia">
+                  <div class="add-data">
+                    <el-upload class="upload-demo" action="" :auto-upload='false' :on-change="datasChange">
+                      <el-button size="small" type="primary">点击上传</el-button>
+                    </el-upload>
+                    <div class="li-name" v-for="item of datasList">
+                      {{item.name}} <span>编辑</span><span>删除</span>
+                    </div>
+                  </div>
+                </div>
+                <span slot="footer" class="dialog-footer">
+                  <el-button @click="materials = false">取 消</el-button>
+                  <el-button type="primary" @click="handactipreparation">确 定</el-button>
+                </span>
+              </el-dialog>
 <!--                签到-->
                 <el-dialog
                   title="签到"
@@ -184,6 +204,7 @@ export default {
       activvote:false,
       actiSign:false,
       answer:false,
+      materials:false,
       activeName: 'second',
       input: '',
       fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
@@ -271,6 +292,14 @@ export default {
       this.$message({
         dangerouslyUseHTMLString: true,
         message: '<div class="el-notification-top">添加投票成功 !</div>',
+        type: ''
+      });
+    },
+    handactipreparation(){
+      this.materials=false
+      this.$message({
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">添加资料成功 !</div>',
         type: ''
       });
     },
