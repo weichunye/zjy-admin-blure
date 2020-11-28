@@ -5,7 +5,7 @@
       <el-container>
         <el-aside width="200px"><Left   :activeName="'ls'"/></el-aside>
         <el-main>
-          <div class="pre-box content">
+          <div class="content">
             <div class="title-left">
               <div class="left-sapn">
                 <span class="link"><router-link  :to="{path:'/classdetaila',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
@@ -243,8 +243,9 @@ export default {
     handleClose() {
       this.dialogVisible=false
       this.$message({
-        message: '互动课程添加成功',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">互动课程添加成功 !</div>',
+        type: ''
       });
       let bewObj = {name: this.input}
       this.actCourList.push(bewObj)
@@ -252,22 +253,25 @@ export default {
     handassignments() {
       this.assignments=false
       this.$message({
-        message: '添加作业成功',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">添加作业成功 !</div>',
+        type: ''
       });
     },
     handactivities(){
       this.activities=false
       this.$message({
-        message: '添加讨论成功',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">添加讨论成功 !</div>',
+        type: ''
       });
     },
     handactiactivvote(){
       this.activvote=false
       this.$message({
-        message: '添加投票成功',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">添加投票成功 !</div>',
+        type: ''
       });
     },
     handactiactiSign(){
@@ -280,8 +284,9 @@ export default {
     handactianswer(){
       this.answer=false
       this.$message({
-        message: '抢答设置完毕',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">抢答设置完毕 !</div>',
+        type: ''
       });
     },
     handleExceed(files, fileList) {

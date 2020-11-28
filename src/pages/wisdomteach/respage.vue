@@ -5,7 +5,7 @@
       <el-container>
         <el-aside width="200px"><Left  :activeName="'ls'"/></el-aside>
         <el-main>
-          <div class="pre-box content">
+          <div class="content">
             <div class="title-left">
               <span class="link"><router-link  :to="{path:'/resources',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
               <h3>资源预览</h3>
@@ -15,13 +15,13 @@
                 <iframe align="center" width="100%" height="170" src="http://img.xuexi111.org/d/file/yingyv/fangfa/2014-07-28/0463cd0a3e0af2926fcf979161c18ee8.jpg"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
               </div>-->
               <div class="img-box-p">
-                <img src="../../assets/img/pic_1.jpg" alt="">
+                <img :src="respageList.img" alt="">
               </div>
               <div class="title-bottom">
-                <h3>《新概念英语》 1-4册 学生用书</h3>
-                <span>日期:2014-07-28</span>
+                <h3>{{respageList.name}}</h3>
+                <span>日期:{{respageList.time}}</span>
                 <span>PDF</span>
-                <p>《新概念英语》 1-4册 学生用书','desc':'《新概念英语》（New Concept English）作为享誉全球的最为经典地道的英语教材，以其严密的体系性、严谨的科学性、精湛的实用性、浓郁的趣味性深受英语学习者的青睐。</p>
+                <p>{{respageList.desc}}</p>
               </div>
             </div>
           </div>
@@ -51,23 +51,24 @@ export default {
         desc:'课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课\n' +
           '         程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课\n' +
           '         程简介课程简介课程简介'
-      }
+      },
+      respageList:''
     }
   },
   computed:{
 
   },
   mounted() {
-
-
+    this.respageList=this.$route.params.respageList
   },
 
   methods: {
     creatClassSuccess(){
       this.creatClassVisible=false
       this.$message({
-        message: '课程修改成功',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">课程修改成功 !</div>',
+        type: ''
       });
 
     }
@@ -103,34 +104,76 @@ export default {
         font-weight: normal;
       }
     }
-    .content-page{
-      width:100%;
-      margin:30px auto;
-      padding:0 30px;
-      .title-bottom{
-        width:100%;
+    .content-page {
+      width: 100%;
+      margin: 30px auto;
+      padding: 0 30px;
+
+      .title-bottom {
+        width: 100%;
         display: block;
-        margin-top:20px;
-        h3{
+        margin-top: 20px;
+
+        h3 {
           display: block;
-          font-size:16px;
+          font-size: 16px;
           font-weight: bold;
-          width:100%;
+          width: 100%;
           line-height: 30px;
-          margin-bottom:5px;
+          margin-bottom: 5px;
         }
-        span{
+
+        span {
           line-height: 24px;
           display: block;
-          margin:0 auto;
-          font-size:14px;
-          width:100%;
+          margin: 0 auto;
+          font-size: 14px;
+          width: 100%;
         }
-        p{
+
+        p {
           display: block;
-          width:100%;
-          margin:5px auto;
+          width: 100%;
+          margin: 5px auto;
           line-height: 20px;
+        }
+      }
+
+      .img-box-p {
+        margin: 20px auto;
+        width: 80%;
+        height: 500px;
+        overflow: auto;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        &::-webkit-scrollbar { /*滚动条整体样式*/
+          width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+          height: 10px;
+
+        }
+
+        &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+
+          border-radius: 10px;
+
+          -webkit-box-shadow: none;
+
+          background: #ffffff;
+
+        }
+
+        &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+
+          -webkit-box-shadow: none;
+
+          border-radius: 10px;
+
+          background: #ffffff;
+
         }
       }
     }

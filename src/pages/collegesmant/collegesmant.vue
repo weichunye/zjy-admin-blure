@@ -147,8 +147,9 @@
         this.dialogVisible=false
         this.isAccess=true
         this.$message({
-          message: '审核完成',
-          type: 'success'
+          dangerouslyUseHTMLString: true,
+          message: '<div class="el-notification-top">审核完成 !</div>',
+          type: ''
         });
         this.dataList[this.itemNum].isAccess=true
         this.dataList[this.itemNum].isUpload=true
@@ -157,8 +158,9 @@
       handleUpload(){
         this.uploadVisible=false
         this.$message({
-          message: '上传成功',
-          type: 'success'
+          dangerouslyUseHTMLString: true,
+          message: '<div class="el-notification-top">上传成功 !</div>',
+          type: ''
         });
         this.dataList[this.itemNum].isUpload=false
       },

@@ -5,21 +5,21 @@
       <el-container>
         <el-aside width="200px"><Left  :activeName="'ls'"/></el-aside>
         <el-main>
-        <div class="pre-box content">
+        <div class="content">
           <div class="title-left">
             <span class="link"><router-link  :to="{path:'/enter',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
             <h3>课程详情</h3>
           </div>
          <div class="text-box">
            <div class="img">
-             <img src="http://img.pmphmooc.com//data/jpg//mooc_course/cover_img/2020/10/23/732550f0-ccf6-41b6-98dd-0cd243fc4137.jpg"/>
+             <img :src="resourceData.img" alt="">
            </div>
            <div class="text">
              <p>
-               <span>课程名称：</span>操作技能-临床急救技能操作
+               <span>课程名称：</span>{{resourceData.name}}
              </p>
              <p>
-               <span>开课日期：</span>2020-02-23
+               <span>开课日期：</span>{{resourceData.time}}
              </p>
              <p>
                <span>课时：</span>30
@@ -28,7 +28,7 @@
                <span >课程封面：</span>
              </p>
              <p>
-               <span>课程简介：</span>涵盖了临床医生（医学生）需掌握的临床急救基本操作技能。以视频示教为特色，模拟教学为工具，医学人文和医疗安全贯穿始终，各操作过程均配有规范的视频，对临床操作的重点、难点配图像详细标识，操作视频清晰，有分解动作、慢动作解析和规范化的演示。
+               <span>课程简介：</span>{{resourceData.desc}}
              </p>
            </div>
          </div>
@@ -67,14 +67,15 @@ import Left from '@/components/leftcon.vue'
           region:'bixiu',
           startTime:'2020-02-23',
           desc:'涵盖了临床医生（医学生）需掌握的临床急救基本操作技能。以视频示教为特色，模拟教学为工具，医学人文和医疗安全贯穿始终，各操作过程均配有规范的视频，对临床操作的重点、难点配图像详细标识，操作视频清晰，有分解动作、慢动作解析和规范化的演示。'
-        }
+        },
+        resourceData:''
       }
 		},
       computed:{
 
       },
 		mounted() {
-
+      this.resourceData=this.$route.params.resourceData
 
 		},
 
@@ -82,8 +83,9 @@ import Left from '@/components/leftcon.vue'
       creatClassSuccess(){
         this.creatClassVisible=false
         this.$message({
-          message: '课程修改成功',
-          type: 'success'
+          dangerouslyUseHTMLString: true,
+          message: '<div class="el-notification-top">课程修改成功 !</div>',
+          type: ''
         });
 
       }

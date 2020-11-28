@@ -5,7 +5,7 @@
       <el-container>
         <el-aside width="200px"><Left   :activeName="'ls'"/></el-aside>
         <el-main>
-          <div class="pre-box content">
+          <div class="content">
             <div class="title-left">
               <span class="link"><router-link  :to="{path:'/classdetaila',query:{id:'1'}}" ><i class="el-icon-arrow-left"></i></router-link></span>
               <h3>课程详情</h3>
@@ -95,8 +95,9 @@ export default {
     creatClassSuccess(){
       this.creatClassVisible=false
       this.$message({
-        message: '课程修改成功',
-        type: 'success'
+        dangerouslyUseHTMLString: true,
+        message: '<div class="el-notification-top">课程修改成功 !</div>',
+        type: ''
       });
 	  let _this = this
 		if(this.type == '编辑') {
@@ -106,6 +107,7 @@ export default {
 				 }
 			})
 		} else {
+      _this.classForm.img=require("../../assets/img/show.jpg")
 			this.$router.push({
 				path: '/enter',
 				query: {
@@ -237,5 +239,20 @@ export default {
     }
   }
 }
-
+.el-message{
+  min-width:auto;
+  padding:0;
+  display: inline-block;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+  box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+  pointer-events: all;
+}
+.el-notification-top{
+  display: inline-block;
+  padding: 10px 16px;
+  background: #fff;
+  color:#00a0e9;
+}
 </style>

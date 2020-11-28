@@ -130,8 +130,9 @@
       handleClose() {
         this.dialogVisible=false
         this.$message({
-          message: '审核完成',
-          type: 'success'
+          dangerouslyUseHTMLString: true,
+          message: '<div class="el-notification-top">审核完成 !</div>',
+          type: ''
         });
         this.dataList[this.itemNum].isAccess=true
       },
